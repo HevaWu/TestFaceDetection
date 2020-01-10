@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseViewController" customModule="TestFaceDetection" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="g2f-jf-hbt" id="8cM-aO-REe"/>
+                <outlet property="observationsOverlay" destination="Kq4-3j-dqs" id="nIQ-Wp-EpN"/>
                 <outlet property="photoPickerButton" destination="6Bj-hM-LW5" id="jq4-Rg-Aod"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -39,9 +41,28 @@
                                 <action selector="photoPickerAction:" destination="-1" eventType="touchUpInside" id="CdS-e3-QSc"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-jf-hbt">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWt-NK-X4d" userLabel="Image Container">
                             <rect key="frame" x="0.0" y="114" width="404" height="638"/>
-                        </imageView>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-jf-hbt">
+                                    <rect key="frame" x="0.0" y="0.0" width="404" height="638"/>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-3j-dqs">
+                                    <rect key="frame" x="0.0" y="0.0" width="404" height="638"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="g2f-jf-hbt" secondAttribute="trailing" id="6xM-35-1qh"/>
+                                <constraint firstItem="g2f-jf-hbt" firstAttribute="leading" secondItem="dWt-NK-X4d" secondAttribute="leading" id="Er8-g2-YWB"/>
+                                <constraint firstItem="g2f-jf-hbt" firstAttribute="top" secondItem="dWt-NK-X4d" secondAttribute="top" id="HSu-Av-etQ"/>
+                                <constraint firstItem="Kq4-3j-dqs" firstAttribute="leading" secondItem="dWt-NK-X4d" secondAttribute="leading" id="RQZ-sI-Ocf"/>
+                                <constraint firstItem="Kq4-3j-dqs" firstAttribute="top" secondItem="dWt-NK-X4d" secondAttribute="top" id="eYU-Bg-TZ5"/>
+                                <constraint firstAttribute="trailing" secondItem="Kq4-3j-dqs" secondAttribute="trailing" id="gYH-Ov-p9d"/>
+                                <constraint firstAttribute="bottom" secondItem="Kq4-3j-dqs" secondAttribute="bottom" id="nah-Yb-hg9"/>
+                                <constraint firstAttribute="bottom" secondItem="g2f-jf-hbt" secondAttribute="bottom" id="uIp-KB-AKq"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-Rw-BNL">
                             <rect key="frame" x="0.0" y="778" width="404" height="40"/>
                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

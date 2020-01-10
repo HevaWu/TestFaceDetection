@@ -16,8 +16,8 @@ protocol BaseViewControllerDelegate: class {
 
 class BaseViewController: UIViewController {
     
-    private var observationsOverlay = UIView()
-    
+    @IBOutlet var observationsOverlay: UIView!
+        
     private var reusableFaceObservationOverlayViews: [FaceObservationOverlayView] {
         if let existingViews = observationsOverlay.subviews as? [FaceObservationOverlayView] {
             return existingViews
@@ -54,14 +54,11 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        imageView.insertSubview(observationsOverlay, at: 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setPhotoPickerButton()
-//        observationsOverlay.frame = imageView.frame
     }
 
     func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
@@ -77,7 +74,7 @@ class BaseViewController: UIViewController {
     
     private func displayFaceObservations(_ faceObservations: [VNFaceObservation]) {
         let overlay = observationsOverlay
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             var reusableViews = self.reusableFaceObservationOverlayViews
             for observation in faceObservations {
                 // Reuse existing observation view if there is one.
@@ -85,9 +82,15 @@ class BaseViewController: UIViewController {
                     existingView.faceObservation = observation
                 } else {
                     let newView = FaceObservationOverlayView(faceObservation: observation)
-                    overlay.addSubview(newView)
+                    overlay?.addSubview(newView)
                 }
             }
+            self.clearReusableViews(in: reusableViews)
+        }
+    }
+    
+    private func clearReusableViews(in reusableViews: [FaceObservationOverlayView]) {
+        DispatchQueue.main.async {
             // Remove previously existing views that were not reused.
             for view in reusableViews {
                 view.removeFromSuperview()
@@ -105,5 +108,7 @@ extension BaseViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imageView.image = image
+        
+        clearReusableViews(in: reusableFaceObservationOverlayViews)
     }
 }
