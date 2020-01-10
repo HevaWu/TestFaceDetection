@@ -16,6 +16,7 @@
 		F000C5CA23C83E6E005A175B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5C723C83E6E005A175B /* MainTabViewController.swift */; };
 		F000C5CB23C83E6E005A175B /* ChoosePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5C823C83E6E005A175B /* ChoosePhotoViewController.swift */; };
 		F000C5CC23C83E6E005A175B /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */; };
+		F000C5D023C84C4B005A175B /* FaceObservationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5CF23C84C4B005A175B /* FaceObservationOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F000C5C723C83E6E005A175B /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		F000C5C823C83E6E005A175B /* ChoosePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePhotoViewController.swift; sourceTree = "<group>"; };
 		F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		F000C5CF23C84C4B005A175B /* FaceObservationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceObservationOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		F000C5A723C839C0005A175B /* TestFaceDetection */ = {
 			isa = PBXGroup;
 			children = (
+				F000C5CE23C84C2D005A175B /* FaceObservation */,
 				F000C5CD23C84BF3005A175B /* MainTab */,
 				F000C5A823C839C0005A175B /* AppDelegate.swift */,
 				F000C5C223C83DE6005A175B /* BaseViewController */,
@@ -90,6 +93,14 @@
 				F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */,
 			);
 			path = MainTab;
+			sourceTree = "<group>";
+		};
+		F000C5CE23C84C2D005A175B /* FaceObservation */ = {
+			isa = PBXGroup;
+			children = (
+				F000C5CF23C84C4B005A175B /* FaceObservationOverlayView.swift */,
+			);
+			path = FaceObservation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				F000C5A923C839C0005A175B /* AppDelegate.swift in Sources */,
 				F000C5C523C83E33005A175B /* BaseViewController.swift in Sources */,
 				F000C5CA23C83E6E005A175B /* MainTabViewController.swift in Sources */,
+				F000C5D023C84C4B005A175B /* FaceObservationOverlayView.swift in Sources */,
 				F000C5CC23C83E6E005A175B /* TakePhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
