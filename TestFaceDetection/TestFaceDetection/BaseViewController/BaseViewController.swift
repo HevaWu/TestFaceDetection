@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreML
 import Vision
 
 protocol BaseViewControllerDelegate: class {
@@ -16,6 +15,17 @@ protocol BaseViewControllerDelegate: class {
 }
 
 class BaseViewController: UIViewController {
+    
+    private var observationsOverlay = UIView()
+    
+    private var reusableFaceObservationOverlayViews: [FaceObservationOverlayView] {
+        if let existingViews = observationsOverlay.subviews as? [FaceObservationOverlayView] {
+            return existingViews
+        } else {
+            return [FaceObservationOverlayView]()
+        }
+    }
+    
     @IBOutlet var photoPickerButton: UIButton!
     
     @IBAction func photoPickerAction(_ sender: UIButton) {
@@ -24,17 +34,34 @@ class BaseViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
-    @IBOutlet var mlResultContent: UILabel!
+    @IBAction func clickFaceDetection(_ sender: UIButton) {
+        guard let image = imageView.image, let cgImage = image.cgImage else { return }
+        
+        // TODO: update orientation part later
+        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [VNImageOption : Any]())
+        let faceDetectionRequest = VNDetectFaceRectanglesRequest()
+        
+        do {
+            try handler.perform([faceDetectionRequest])
+            guard let faceObservations = faceDetectionRequest.results as? [VNFaceObservation] else { return }
+            displayFaceObservations(faceObservations)
+        } catch {
+            print("[Vision] Handle Face Detection Request Error")
+        }
+    }
     
     weak var delegate: BaseViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        imageView.insertSubview(observationsOverlay, at: 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setPhotoPickerButton()
+//        observationsOverlay.frame = imageView.frame
     }
 
     func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
@@ -47,7 +74,26 @@ class BaseViewController: UIViewController {
     private func setPhotoPickerButton() {
         photoPickerButton.titleLabel?.text = delegate?.setPhotoPickerButtonTitle()
     }
-
+    
+    private func displayFaceObservations(_ faceObservations: [VNFaceObservation]) {
+        let overlay = observationsOverlay
+        DispatchQueue.main.async {
+            var reusableViews = self.reusableFaceObservationOverlayViews
+            for observation in faceObservations {
+                // Reuse existing observation view if there is one.
+                if let existingView = reusableViews.popLast() {
+                    existingView.faceObservation = observation
+                } else {
+                    let newView = FaceObservationOverlayView(faceObservation: observation)
+                    overlay.addSubview(newView)
+                }
+            }
+            // Remove previously existing views that were not reused.
+            for view in reusableViews {
+                view.removeFromSuperview()
+            }
+        }
+    }
 }
 
 extension BaseViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
