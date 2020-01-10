@@ -36,9 +36,9 @@ class BaseViewController: UIViewController {
     
     @IBAction func clickFaceDetection(_ sender: UIButton) {
         guard let image = imageView.image, let cgImage = image.cgImage else { return }
+        let orientation = CGImagePropertyOrientation(image.imageOrientation)
         
-        // TODO: update orientation part later
-        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [VNImageOption : Any]())
+        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: orientation, options: [VNImageOption : Any]())
         let faceDetectionRequest = VNDetectFaceRectanglesRequest()
         
         do {
