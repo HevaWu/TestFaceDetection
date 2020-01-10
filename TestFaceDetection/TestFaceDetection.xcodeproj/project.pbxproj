@@ -62,9 +62,7 @@
 		F000C5A723C839C0005A175B /* TestFaceDetection */ = {
 			isa = PBXGroup;
 			children = (
-				F000C5C823C83E6E005A175B /* ChoosePhotoViewController.swift */,
-				F000C5C723C83E6E005A175B /* MainTabViewController.swift */,
-				F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */,
+				F000C5CD23C84BF3005A175B /* MainTab */,
 				F000C5A823C839C0005A175B /* AppDelegate.swift */,
 				F000C5C223C83DE6005A175B /* BaseViewController */,
 				F000C5B023C839C0005A175B /* Main.storyboard */,
@@ -82,6 +80,16 @@
 				F000C5C423C83E33005A175B /* BaseViewController.xib */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		F000C5CD23C84BF3005A175B /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				F000C5C823C83E6E005A175B /* ChoosePhotoViewController.swift */,
+				F000C5C723C83E6E005A175B /* MainTabViewController.swift */,
+				F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
