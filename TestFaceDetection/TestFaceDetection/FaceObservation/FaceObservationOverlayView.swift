@@ -59,22 +59,5 @@ class FaceObservationOverlayView: UIView {
         ctx.setLineWidth(4)
         ctx.setStrokeColor(UIColor.yellow.cgColor)
         ctx.stroke(bounds)
-        
-//        if let bounding = faceObservation?.boundingBox
-//        
-//        if let captureQuality = faceObservation?.faceCaptureQuality {
-//            // Draw face capture quality value.
-//            let attrs = [NSAttributedString.Key.font: UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .medium)]
-//            let string = NSString(format: "%.2f", captureQuality)
-//            let size = string.size(withAttributes: attrs)
-//            let margin = CGFloat(5)
-//            let rect = CGRect(x: margin, y: bounds.height - size.height - margin,
-//                              width: size.width + margin * 2, height: size.height + margin * 2)
-//            let fillColor = UIColor.white.withAlphaComponent(0.5)
-//            ctx.setFillColor(fillColor.cgColor)
-//            ctx.fill(rect.insetBy(dx: -margin, dy: -margin))
-//            ctx.setStrokeColor(UIColor.darkGray.cgColor)
-//            string.draw(at: rect.origin, withAttributes: attrs)
-//        }
     }
 }
