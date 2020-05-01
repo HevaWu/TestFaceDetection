@@ -21,6 +21,7 @@
 		F000C5D323C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5D223C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		F01D00E6245BD31F00F00C35 /* VisionFaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00E5245BD31F00F00C35 /* VisionFaceDetector.swift */; };
 		F01D00EB245BE6DE00F00C35 /* MLKitFaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00EA245BE6DE00F00C35 /* MLKitFaceDetector.swift */; };
+		F01D00ED245BE87700F00C35 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00EC245BE87700F00C35 /* FaceDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		F000C5D223C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
 		F01D00E5245BD31F00F00C35 /* VisionFaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionFaceDetector.swift; sourceTree = "<group>"; };
 		F01D00EA245BE6DE00F00C35 /* MLKitFaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitFaceDetector.swift; sourceTree = "<group>"; };
+		F01D00EC245BE87700F00C35 /* FaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 		F73E17717742BA05B3A2CC9F /* Pods_TestFaceDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestFaceDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		F000C5A723C839C0005A175B /* TestFaceDetection */ = {
 			isa = PBXGroup;
 			children = (
+				F01D00EC245BE87700F00C35 /* FaceDetector.swift */,
 				F01D00E7245BE3E700F00C35 /* MLKit */,
 				F000C5CE23C84C2D005A175B /* Vision */,
 				F000C5CD23C84BF3005A175B /* MainTab */,
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01D00ED245BE87700F00C35 /* FaceDetector.swift in Sources */,
 				F000C5CB23C83E6E005A175B /* ChoosePhotoViewController.swift in Sources */,
 				F000C5A923C839C0005A175B /* AppDelegate.swift in Sources */,
 				F000C5D323C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,

@@ -9,9 +9,9 @@
 import UIKit
 import Vision
 
-final class VisionFaceDetector {
-    private let image: UIImage
-    private let parentView: UIView
+final class VisionFaceDetector: FaceDetector {
+    internal let image: UIImage
+    internal let parentView: UIView
     
     private var reusableViews: [VisionFaceObservationOverlayView] {
         if let existingViews = parentView.subviews as? [VisionFaceObservationOverlayView] {
