@@ -9,7 +9,7 @@ Implements the image view responsible for displaying face capture quality metric
 import UIKit
 import Vision
 
-class FaceObservationOverlayView: UIView {
+class VisionFaceObservationOverlayView: UIView {
 
     var faceObservation: VNFaceObservation? {
         didSet {

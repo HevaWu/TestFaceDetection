@@ -18,11 +18,11 @@ class BaseViewController: UIViewController {
     
     @IBOutlet var observationsOverlay: UIView!
         
-    private var reusableFaceObservationOverlayViews: [FaceObservationOverlayView] {
-        if let existingViews = observationsOverlay.subviews as? [FaceObservationOverlayView] {
+    private var reusableFaceObservationOverlayViews: [VisionFaceObservationOverlayView] {
+        if let existingViews = observationsOverlay.subviews as? [VisionFaceObservationOverlayView] {
             return existingViews
         } else {
-            return [FaceObservationOverlayView]()
+            return [VisionFaceObservationOverlayView]()
         }
     }
     
@@ -81,7 +81,7 @@ class BaseViewController: UIViewController {
                 if let existingView = reusableViews.popLast() {
                     existingView.faceObservation = observation
                 } else {
-                    let newView = FaceObservationOverlayView(faceObservation: observation)
+                    let newView = VisionFaceObservationOverlayView(faceObservation: observation)
                     overlay?.addSubview(newView)
                 }
             }
@@ -89,7 +89,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    private func clearReusableViews(in reusableViews: [FaceObservationOverlayView]) {
+    private func clearReusableViews(in reusableViews: [VisionFaceObservationOverlayView]) {
         DispatchQueue.main.async {
             // Remove previously existing views that were not reused.
             for view in reusableViews {
