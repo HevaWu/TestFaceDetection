@@ -18,6 +18,7 @@
 		F000C5CC23C83E6E005A175B /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */; };
 		F000C5D023C84C4B005A175B /* VisionFaceObservationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5CF23C84C4B005A175B /* VisionFaceObservationOverlayView.swift */; };
 		F000C5D323C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000C5D223C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		F01D00E6245BD31F00F00C35 /* VisionFaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00E5245BD31F00F00C35 /* VisionFaceDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F000C5C923C83E6E005A175B /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		F000C5CF23C84C4B005A175B /* VisionFaceObservationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionFaceObservationOverlayView.swift; sourceTree = "<group>"; };
 		F000C5D223C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		F01D00E5245BD31F00F00C35 /* VisionFaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionFaceDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F000C5CF23C84C4B005A175B /* VisionFaceObservationOverlayView.swift */,
+				F01D00E5245BD31F00F00C35 /* VisionFaceDetector.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				F000C5A923C839C0005A175B /* AppDelegate.swift in Sources */,
 				F000C5D323C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				F000C5C523C83E33005A175B /* BaseViewController.swift in Sources */,
+				F01D00E6245BD31F00F00C35 /* VisionFaceDetector.swift in Sources */,
 				F000C5CA23C83E6E005A175B /* MainTabViewController.swift in Sources */,
 				F000C5D023C84C4B005A175B /* VisionFaceObservationOverlayView.swift in Sources */,
 				F000C5CC23C83E6E005A175B /* TakePhotoViewController.swift in Sources */,
