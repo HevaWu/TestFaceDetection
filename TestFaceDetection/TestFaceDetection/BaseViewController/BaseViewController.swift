@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
-    @IBAction func clickFaceDetection(_ sender: UIButton) {
+    @IBAction func clickVisionFaceDetection(_ sender: UIButton) {
         guard let image = imageView.image else { return }
         visionFaceDetector = VisionFaceDetector(image: image, parentView: observationsOverlay)
         visionFaceDetector?.run()

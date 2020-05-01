@@ -42,13 +42,13 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWt-NK-X4d" userLabel="Image Container">
-                            <rect key="frame" x="0.0" y="114" width="404" height="638"/>
+                            <rect key="frame" x="0.0" y="114" width="404" height="628"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-jf-hbt">
-                                    <rect key="frame" x="0.0" y="0.0" width="404" height="638"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="404" height="628"/>
                                 </imageView>
                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-3j-dqs">
-                                    <rect key="frame" x="0.0" y="0.0" width="404" height="638"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="404" height="628"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -63,22 +63,40 @@
                                 <constraint firstAttribute="bottom" secondItem="g2f-jf-hbt" secondAttribute="bottom" id="uIp-KB-AKq"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-Rw-BNL">
-                            <rect key="frame" x="0.0" y="778" width="404" height="40"/>
-                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Nc-QJ-Ag1">
+                            <rect key="frame" x="0.0" y="768" width="404" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-Rw-BNL">
+                                    <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="82x-4X-9Ns"/>
+                                    </constraints>
+                                    <state key="normal" title="Vision Face Detection"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickFaceDetection:" destination="-1" eventType="touchUpInside" id="Lnq-PS-W1X"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApD-Lo-3lA">
+                                    <rect key="frame" x="207" y="0.0" width="197" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="ML Kit Face Detection"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="82x-4X-9Ns"/>
+                                <constraint firstItem="ApD-Lo-3lA" firstAttribute="width" secondItem="E6h-Rw-BNL" secondAttribute="width" id="bSx-bJ-Lg6"/>
                             </constraints>
-                            <state key="normal" title="Face Detection"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <integer key="value" value="15"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="clickFaceDetection:" destination="-1" eventType="touchUpInside" id="Lnq-PS-W1X"/>
-                            </connections>
-                        </button>
+                        </stackView>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="6Fe-ev-AsG"/>
                 </stackView>
