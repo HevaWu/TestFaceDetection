@@ -23,6 +23,7 @@
 		F01D00EB245BE6DE00F00C35 /* MLKitFaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00EA245BE6DE00F00C35 /* MLKitFaceDetector.swift */; };
 		F01D00ED245BE87700F00C35 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00EC245BE87700F00C35 /* FaceDetector.swift */; };
 		F01D00EF245C0CC100F00C35 /* MLKitFaceOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D00EE245C0CC100F00C35 /* MLKitFaceOverlayView.swift */; };
+		F01D00F1245C170900F00C35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01D00F0245C170900F00C35 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		F01D00EA245BE6DE00F00C35 /* MLKitFaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitFaceDetector.swift; sourceTree = "<group>"; };
 		F01D00EC245BE87700F00C35 /* FaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 		F01D00EE245C0CC100F00C35 /* MLKitFaceOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitFaceOverlayView.swift; sourceTree = "<group>"; };
+		F01D00F0245C170900F00C35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F73E17717742BA05B3A2CC9F /* Pods_TestFaceDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestFaceDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				F000C5B323C839C2005A175B /* Assets.xcassets */,
 				F000C5B523C839C2005A175B /* LaunchScreen.storyboard */,
 				F000C5B823C839C2005A175B /* Info.plist */,
+				F01D00F0245C170900F00C35 /* GoogleService-Info.plist */,
 			);
 			path = TestFaceDetection;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				F000C5B723C839C2005A175B /* LaunchScreen.storyboard in Resources */,
 				F000C5C623C83E33005A175B /* BaseViewController.xib in Resources */,
+				F01D00F1245C170900F00C35 /* GoogleService-Info.plist in Resources */,
 				F000C5B423C839C2005A175B /* Assets.xcassets in Resources */,
 				F000C5B223C839C0005A175B /* Main.storyboard in Resources */,
 			);
