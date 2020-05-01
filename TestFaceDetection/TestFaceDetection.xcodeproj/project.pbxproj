@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,7 +68,6 @@
 				10A8CC0354258A248711D63C /* Pods-TestFaceDetection.debug.xcconfig */,
 				1BFFC64430B11180AC13E3D6 /* Pods-TestFaceDetection.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +92,7 @@
 		F000C5A723C839C0005A175B /* TestFaceDetection */ = {
 			isa = PBXGroup;
 			children = (
+				F01D00E7245BE3E700F00C35 /* MLKit */,
 				F000C5CE23C84C2D005A175B /* Vision */,
 				F000C5CD23C84BF3005A175B /* MainTab */,
 				F000C5A823C839C0005A175B /* AppDelegate.swift */,
@@ -140,6 +140,13 @@
 				F000C5D223C8549E005A175B /* CGImagePropertyOrientation+UIImageOrientation.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F01D00E7245BE3E700F00C35 /* MLKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MLKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
