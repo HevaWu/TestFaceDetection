@@ -6,5 +6,14 @@
 //  Copyright © 2020 He Wu. All rights reserved.
 //
     
+import UIKit
 
-import Foundation
+final class MLKitFaceDetector {
+    private let image: UIImage
+    private let parentView: UIView
+    
+    init(image: UIImage, parentView: UIView) {
+        self.image = image
+        self.parentView = parentView
+    }
+}
