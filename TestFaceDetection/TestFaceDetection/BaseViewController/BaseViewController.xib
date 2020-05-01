@@ -79,7 +79,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="clickFaceDetection:" destination="-1" eventType="touchUpInside" id="Lnq-PS-W1X"/>
+                                        <action selector="clickVisionFaceDetection:" destination="-1" eventType="touchUpInside" id="2nz-T9-hI2"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApD-Lo-3lA">
@@ -91,6 +91,9 @@
                                             <integer key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickMLKitFaceDetection:" destination="-1" eventType="touchUpInside" id="9a1-bt-zJg"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

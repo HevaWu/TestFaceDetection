@@ -17,6 +17,8 @@ protocol BaseViewControllerDelegate: class {
 class BaseViewController: UIViewController {
     
     var visionFaceDetector: VisionFaceDetector?
+    var mlkitFaceDetector: MLKitFaceDetector?
+    
     weak var delegate: BaseViewControllerDelegate?
     
     @IBOutlet var observationsOverlay: UIView!
@@ -33,6 +35,12 @@ class BaseViewController: UIViewController {
         guard let image = imageView.image else { return }
         visionFaceDetector = VisionFaceDetector(image: image, parentView: observationsOverlay)
         visionFaceDetector?.run()
+    }
+    
+    @IBAction func clickMLKitFaceDetection(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+        mlkitFaceDetector = MLKitFaceDetector(image: image, parentView: observationsOverlay)
+        mlkitFaceDetector?.run()
     }
     
     override func viewDidLoad() {
@@ -67,5 +75,6 @@ extension BaseViewController: UIImagePickerControllerDelegate, UINavigationContr
         imageView.image = image
         
         visionFaceDetector?.clearReusableViews()
+        mlkitFaceDetector?.clearReusableViews()
     }
 }
