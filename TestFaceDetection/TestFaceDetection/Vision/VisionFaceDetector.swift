@@ -14,7 +14,7 @@ final class VisionFaceDetector: FaceDetector {
     internal let parentView: UIView
     
     private var reusableViews: [VisionFaceObservationOverlayView] {
-        if let existingViews = parentView.subviews as? [VisionFaceObservationOverlayView] {
+        if let existingViews = parentView.subviews.filter({ $0 as? VisionFaceObservationOverlayView != nil }) as? [VisionFaceObservationOverlayView] {
             return existingViews
         } else {
             return [VisionFaceObservationOverlayView]()

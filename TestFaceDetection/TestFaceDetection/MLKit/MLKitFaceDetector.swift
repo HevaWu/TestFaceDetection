@@ -14,7 +14,7 @@ final class MLKitFaceDetector: FaceDetector {
     internal let parentView: UIView
     
     private var reusableViews: [MLKitFaceOverlayView] {
-        if let existingViews = parentView.subviews as? [MLKitFaceOverlayView] {
+        if let existingViews = parentView.subviews.filter({ $0 as? MLKitFaceOverlayView != nil }) as? [MLKitFaceOverlayView] {
             return existingViews
         } else {
             return [MLKitFaceOverlayView]()
