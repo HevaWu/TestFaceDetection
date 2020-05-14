@@ -16,10 +16,13 @@ final class MLKitFaceOverlayView: UIView {
         }
     }
     
-    init(face: VisionFace) {
+    var imageSize: CGSize?
+    
+    init(face: VisionFace, imageSize: CGSize) {
         super.init(frame: .zero)
+        self.backgroundColor = .clear
         self.face = face
-        
+        self.imageSize = imageSize
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +40,7 @@ final class MLKitFaceOverlayView: UIView {
         
         // Draw face bounding box
         ctx.setLineWidth(4)
-        ctx.setStrokeColor(UIColor.yellow.cgColor)
+        ctx.setStrokeColor(UIColor.green.cgColor)
         ctx.stroke(bounds)
     }
     
@@ -48,12 +51,16 @@ final class MLKitFaceOverlayView: UIView {
         }
         
         // Transform from normalized coordinates to coordinates of super view.
+        
         let superFrameWidth = superView.frame.width
         let superFrameHeight = superView.frame.height
-        let coordTransform = CGAffineTransform(scaleX: superFrameWidth, y: superFrameHeight)
-        // Vision-to-UIKit coordinate transform. Vision is always relative to LLC.
-        let finalTransform = coordTransform.scaledBy(x: 1, y: -1).translatedBy(x: 0, y: -1)
-        frame = face.frame.applying(finalTransform)
+        
+        let imageWidth = imageSize!.width
+        let imageHeight = imageSize!.height
+        
+        let transform = CGAffineTransform(scaleX: superFrameWidth/imageWidth, y: superFrameHeight/imageHeight)
+
+        frame = face.frame.applying(transform)
         setNeedsDisplay()
     }
 }

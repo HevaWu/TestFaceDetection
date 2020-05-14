@@ -57,7 +57,7 @@ final class MLKitFaceDetector: FaceDetector {
                 if let existingView = reusableViews.popLast() {
                     existingView.face = face
                 } else {
-                    let newView = MLKitFaceOverlayView(face: face)
+                    let newView = MLKitFaceOverlayView(face: face, imageSize: self.image.size)
                     self.parentView.addSubview(newView)
                 }
             }
