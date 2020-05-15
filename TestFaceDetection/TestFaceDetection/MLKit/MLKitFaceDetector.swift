@@ -30,11 +30,15 @@ final class MLKitFaceDetector: FaceDetector {
     }
     
     func run() {
+        let start = Date()
+        print("[MLKit][FaceDetect] Start Processing")
         let faceDetector = vision.faceDetector(options: options)
         let image = VisionImage(image: self.image)
         faceDetector.process(image) { [weak self] res, error in
             guard let self = self, error == nil, let faces = res, !faces.isEmpty else { return }
             self.displayFaces(faces)
+            let interval = Date().timeIntervalSince(start)
+            print("[MLKit][FaceDetect] Finished. Execution time:\(interval) seconds. Face count: \(faces.count)")
         }
     }
     

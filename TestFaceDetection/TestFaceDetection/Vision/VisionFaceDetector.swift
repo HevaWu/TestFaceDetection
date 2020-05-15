@@ -27,6 +27,8 @@ final class VisionFaceDetector: FaceDetector {
     }
     
     func run() {
+        let start = Date()
+        print("[Vision][FaceDetect] Start Processing")
         guard let cgImage = image.cgImage else { return }
         let orientation = CGImagePropertyOrientation(image.imageOrientation)
         
@@ -37,6 +39,8 @@ final class VisionFaceDetector: FaceDetector {
             try handler.perform([faceDetectionRequest])
             guard let faceObservations = faceDetectionRequest.results as? [VNFaceObservation] else { return }
             displayFaceObservations(faceObservations)
+            let interval = Date().timeIntervalSince(start)
+            print("[Vision][FaceDetect] Finished. Execution time: \(interval) seconds. Face count: \(faceObservations.count)")
         } catch {
             print("[Vision] Handle Face Detection Request Error")
         }
