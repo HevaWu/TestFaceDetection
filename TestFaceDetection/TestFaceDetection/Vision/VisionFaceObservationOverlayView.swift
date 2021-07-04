@@ -9,7 +9,7 @@ Implements the image view responsible for displaying face capture quality metric
 import UIKit
 import Vision
 
-class FaceObservationOverlayView: UIView {
+class VisionFaceObservationOverlayView: UIView {
 
     var faceObservation: VNFaceObservation? {
         didSet {
@@ -21,10 +21,6 @@ class FaceObservationOverlayView: UIView {
         super.init(frame: .zero)
         self.backgroundColor = .clear
         self.faceObservation = faceObservation
-    }
-    
-    private override init(frame: CGRect) {
-        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
@@ -59,22 +55,5 @@ class FaceObservationOverlayView: UIView {
         ctx.setLineWidth(4)
         ctx.setStrokeColor(UIColor.yellow.cgColor)
         ctx.stroke(bounds)
-        
-//        if let bounding = faceObservation?.boundingBox
-//        
-//        if let captureQuality = faceObservation?.faceCaptureQuality {
-//            // Draw face capture quality value.
-//            let attrs = [NSAttributedString.Key.font: UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .medium)]
-//            let string = NSString(format: "%.2f", captureQuality)
-//            let size = string.size(withAttributes: attrs)
-//            let margin = CGFloat(5)
-//            let rect = CGRect(x: margin, y: bounds.height - size.height - margin,
-//                              width: size.width + margin * 2, height: size.height + margin * 2)
-//            let fillColor = UIColor.white.withAlphaComponent(0.5)
-//            ctx.setFillColor(fillColor.cgColor)
-//            ctx.fill(rect.insetBy(dx: -margin, dy: -margin))
-//            ctx.setStrokeColor(UIColor.darkGray.cgColor)
-//            string.draw(at: rect.origin, withAttributes: attrs)
-//        }
     }
 }

@@ -16,15 +16,12 @@ protocol BaseViewControllerDelegate: class {
 
 class BaseViewController: UIViewController {
     
+    var visionFaceDetector: VisionFaceDetector?
+    var mlkitFaceDetector: MLKitFaceDetector?
+    
+    weak var delegate: BaseViewControllerDelegate?
+    
     @IBOutlet var observationsOverlay: UIView!
-        
-    private var reusableFaceObservationOverlayViews: [FaceObservationOverlayView] {
-        if let existingViews = observationsOverlay.subviews as? [FaceObservationOverlayView] {
-            return existingViews
-        } else {
-            return [FaceObservationOverlayView]()
-        }
-    }
     
     @IBOutlet var photoPickerButton: UIButton!
     
@@ -34,23 +31,17 @@ class BaseViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
-    @IBAction func clickFaceDetection(_ sender: UIButton) {
-        guard let image = imageView.image, let cgImage = image.cgImage else { return }
-        let orientation = CGImagePropertyOrientation(image.imageOrientation)
-        
-        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: orientation, options: [VNImageOption : Any]())
-        let faceDetectionRequest = VNDetectFaceRectanglesRequest()
-        
-        do {
-            try handler.perform([faceDetectionRequest])
-            guard let faceObservations = faceDetectionRequest.results as? [VNFaceObservation] else { return }
-            displayFaceObservations(faceObservations)
-        } catch {
-            print("[Vision] Handle Face Detection Request Error")
-        }
+    @IBAction func clickVisionFaceDetection(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+        visionFaceDetector = VisionFaceDetector(image: image, parentView: observationsOverlay)
+        visionFaceDetector?.run()
     }
     
-    weak var delegate: BaseViewControllerDelegate?
+    @IBAction func clickMLKitFaceDetection(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+        mlkitFaceDetector = MLKitFaceDetector(image: image, parentView: observationsOverlay)
+        mlkitFaceDetector?.run()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,32 +62,6 @@ class BaseViewController: UIViewController {
     private func setPhotoPickerButton() {
         photoPickerButton.titleLabel?.text = delegate?.setPhotoPickerButtonTitle()
     }
-    
-    private func displayFaceObservations(_ faceObservations: [VNFaceObservation]) {
-        let overlay = observationsOverlay
-        DispatchQueue.main.async { [unowned self] in
-            var reusableViews = self.reusableFaceObservationOverlayViews
-            for observation in faceObservations {
-                // Reuse existing observation view if there is one.
-                if let existingView = reusableViews.popLast() {
-                    existingView.faceObservation = observation
-                } else {
-                    let newView = FaceObservationOverlayView(faceObservation: observation)
-                    overlay?.addSubview(newView)
-                }
-            }
-            self.clearReusableViews(in: reusableViews)
-        }
-    }
-    
-    private func clearReusableViews(in reusableViews: [FaceObservationOverlayView]) {
-        DispatchQueue.main.async {
-            // Remove previously existing views that were not reused.
-            for view in reusableViews {
-                view.removeFromSuperview()
-            }
-        }
-    }
 }
 
 extension BaseViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -109,6 +74,7 @@ extension BaseViewController: UIImagePickerControllerDelegate, UINavigationContr
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imageView.image = image
         
-        clearReusableViews(in: reusableFaceObservationOverlayViews)
+        visionFaceDetector?.clearReusableViews()
+        mlkitFaceDetector?.clearReusableViews()
     }
 }
